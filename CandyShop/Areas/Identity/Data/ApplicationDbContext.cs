@@ -9,7 +9,7 @@ namespace CandyShop.Areas.Identity.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        
+
         public DbSet<ApplicationUser> Customers { get; set; }
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -34,8 +34,8 @@ namespace CandyShop.Areas.Identity.Data
             string customerId = Guid.NewGuid().ToString();
             string customerId2 = Guid.NewGuid().ToString();
 
-           // modelBuilder.Entity<ApplicationUser>().HasKey(p => p.CustomerId);
-           modelBuilder.Entity<Cart>().HasKey(c => c.CartId);
+            // modelBuilder.Entity<ApplicationUser>().HasKey(p => p.CustomerId);
+            modelBuilder.Entity<Cart>().HasKey(c => c.CartId);
 
             modelBuilder.Entity<ApplicationUser>().HasOne(c => c.Cart).WithOne(u => u.Customer).HasForeignKey<Cart>(c => c.CustomerCartId);
             modelBuilder.Entity<ItemOrder>().HasOne(c => c.Cart).WithMany(u => u.ItemOrders).HasForeignKey(c => c.CartId);
@@ -45,29 +45,29 @@ namespace CandyShop.Areas.Identity.Data
 
             modelBuilder.Entity<ApplicationUser>().HasData(
                 new ApplicationUser
-            {
-                Id = customerId,
-                Email = "admin@gmail.com",
-                NormalizedEmail = "ADMIN@GMAIL:COM",
-                UserName = "admin@gmail.com",
-                NormalizedUserName = "admin@gmail.com",
-                PasswordHash = hasher.HashPassword(null, "Abc123!"),
-                CustomerFName = "Admin",
-                CustomerLName = "Adminsson",
-                PhoneNumber = "0737555555",
-            },
+                {
+                    Id = customerId,
+                    Email = "admin@gmail.com",
+                    NormalizedEmail = "ADMIN@GMAIL:COM",
+                    UserName = "admin@gmail.com",
+                    NormalizedUserName = "admin@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "Abc123!"),
+                    CustomerFName = "Admin",
+                    CustomerLName = "Adminsson",
+                    PhoneNumber = "0737555555",
+                },
 
                 new ApplicationUser
-            {
-                Id = customerId2,
-                Email = "user@gmail.com",
-                NormalizedEmail = "USER@GMAIL:COM",
-                UserName = "user@gmail.com",
-                NormalizedUserName = "user@gmail.com",
-                PasswordHash = hasher.HashPassword(null, "Abc123!"),
-                CustomerFName = "User",
-                CustomerLName = "Usersson",
-                PhoneNumber = "0737555555",
+                {
+                    Id = customerId2,
+                    Email = "user@gmail.com",
+                    NormalizedEmail = "USER@GMAIL:COM",
+                    UserName = "user@gmail.com",
+                    NormalizedUserName = "user@gmail.com",
+                    PasswordHash = hasher.HashPassword(null, "Abc123!"),
+                    CustomerFName = "User",
+                    CustomerLName = "Usersson",
+                    PhoneNumber = "0737555555",
                 }
             );
 
@@ -77,10 +77,10 @@ namespace CandyShop.Areas.Identity.Data
                    CandyId = 1,
                    CandyName = "Coffee Rio",
                    CandyCategoryId = 1,
-                   CandyDescription = "Caramels made by cooking sugar and water together",
+                   CandyDescription = "Caramels are made by cooking sugar and water together",
                    CandyPrice = 5,
                    CandyQuantity = 50,
-                   CandyImage = "candy1"
+                   CandyImage = "Choklad1.jpg"
                },
                 new Candy
                 {
@@ -90,7 +90,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "A tasty Caramel and sugary Crunch",
                     CandyPrice = 15,
                     CandyQuantity = 50,
-                    CandyImage = "candy2"
+                    CandyImage = "Choklad2.png"
                 },
                 new Candy
                 {
@@ -100,17 +100,17 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "The Vanila taste with the sweet of caramel",
                     CandyPrice = 10,
                     CandyQuantity = 50,
-                    CandyImage = "candy3"
+                    CandyImage = "Choklad3.jpg"
                 },
                 new Candy
                 {
                     CandyId = 4,
-                    CandyName = "Caramel Square",
+                    CandyName = "Caramel Squares",
                     CandyCategoryId = 1,
                     CandyDescription = "The Vanilla taste with the sweet of caramel",
                     CandyPrice = 10,
                     CandyQuantity = 50,
-                    CandyImage = "candy4"
+                    CandyImage = "Choklad4.jpg"
                 },
                 new Candy
                 {
@@ -120,7 +120,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Combination of nuts and the sweet of caramel",
                     CandyPrice = 15,
                     CandyQuantity = 40,
-                    CandyImage = "candy5"
+                    CandyImage = "Choklad5.jpg"
                 },
                 new Candy
                 {
@@ -130,7 +130,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Tastey colorful chocolate",
                     CandyPrice = 15,
                     CandyQuantity = 40,
-                    CandyImage = "candy6"
+                    CandyImage = "Gele1.jpg"
                 },
                  new Candy
                  {
@@ -140,27 +140,27 @@ namespace CandyShop.Areas.Identity.Data
                      CandyDescription = "A mini full of flavor chocolate",
                      CandyPrice = 11,
                      CandyQuantity = 45,
-                     CandyImage = "candy7"
+                     CandyImage = "Gele2.jpg"
                  },
                 new Candy
                 {
                     CandyId = 8,
                     CandyName = "Almond Joy",
                     CandyCategoryId = 2,
-                    CandyDescription = "Combination of Almond and chocolate",
+                    CandyDescription = "Combination of Almond and the sweet of chocolate",
                     CandyPrice = 16,
                     CandyQuantity = 40,
-                    CandyImage = "candy8"
+                    CandyImage = "Gele3.jpg"
                 },
                 new Candy
                 {
                     CandyId = 9,
-                    CandyName = "Chocolate Cherry",
+                    CandyName = "Chocolate Cherries",
                     CandyCategoryId = 2,
-                    CandyDescription = "Combination of Cherries flavor and chocolate",
+                    CandyDescription = "Combination of Cherries flavor and the sweet of chocolate",
                     CandyPrice = 15,
                     CandyQuantity = 50,
-                    CandyImage = "candy9"
+                    CandyImage = "Gele4.jpg"
                 },
                 new Candy
                 {
@@ -170,7 +170,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Biscute Coverd of chocolate",
                     CandyPrice = 11,
                     CandyQuantity = 50,
-                    CandyImage = "candy10"
+                    CandyImage = "Gele5.jpg"
                 },
                 new Candy
                 {
@@ -180,17 +180,17 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Combination of nuts and the sweet of chocolate",
                     CandyPrice = 15,
                     CandyQuantity = 40,
-                    CandyImage = "candy11"
+                    CandyImage = "Gele2.jpg"
                 },
                 new Candy
                 {
                     CandyId = 12,
-                    CandyName = "Gummi Cherry",
+                    CandyName = "Gummi Cheries",
                     CandyCategoryId = 3,
                     CandyDescription = "Gummies are gelatin based chewy candies",
                     CandyPrice = 18,
                     CandyQuantity = 55,
-                    CandyImage = "candy12"
+                    CandyImage = "Karamell1.jpg"
                 },
                  new Candy
                  {
@@ -200,7 +200,7 @@ namespace CandyShop.Areas.Identity.Data
                      CandyDescription = "Chewy candies With different flavors",
                      CandyPrice = 5,
                      CandyQuantity = 60,
-                     CandyImage = "candy13"
+                     CandyImage = "Karamell2.jpg"
                  },
 
                  new Candy
@@ -211,7 +211,7 @@ namespace CandyShop.Areas.Identity.Data
                      CandyDescription = "Chewy candies With cola flavor",
                      CandyPrice = 5,
                      CandyQuantity = 60,
-                     CandyImage = "candy14"
+                     CandyImage = "Karamell3.jpg"
                  },
                 new Candy
                 {
@@ -221,7 +221,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Chewy candies With stawberry flavor",
                     CandyPrice = 5,
                     CandyQuantity = 60,
-                    CandyImage = "candy15"
+                    CandyImage = "Karamell4.jpg"
                 },
                 new Candy
                 {
@@ -231,7 +231,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Chewy candies With banana flavor",
                     CandyPrice = 5,
                     CandyQuantity = 60,
-                    CandyImage = "candy16"
+                    CandyImage = "Karamell5.jpg"
                 },
                 new Candy
                 {
@@ -241,7 +241,7 @@ namespace CandyShop.Areas.Identity.Data
                     CandyDescription = "Licorice is a semi-soft candy",
                     CandyPrice = 20,
                     CandyQuantity = 50,
-                    CandyImage = "candy17"
+                    CandyImage = "Klubba1.jpg"
                 },
                  new Candy
                  {
@@ -251,7 +251,7 @@ namespace CandyShop.Areas.Identity.Data
                      CandyDescription = "Licorice is a semi-soft candy with cherry flavor",
                      CandyPrice = 20,
                      CandyQuantity = 50,
-                     CandyImage = "candy18"
+                     CandyImage = "Klubba2.jpg"
                  },
                   new Candy
                   {
@@ -261,7 +261,7 @@ namespace CandyShop.Areas.Identity.Data
                       CandyDescription = "A hard sweet candy",
                       CandyPrice = 15,
                       CandyQuantity = 40,
-                      CandyImage = "candy19"
+                      CandyImage = "Klubba3.jpg"
                   },
                    new Candy
                    {
@@ -271,7 +271,7 @@ namespace CandyShop.Areas.Identity.Data
                        CandyDescription = "A sour candy",
                        CandyPrice = 13,
                        CandyQuantity = 30,
-                       CandyImage = "candy20"
+                       CandyImage = "Klubba4.jpg"
                    },
                   new Candy
                   {
@@ -281,7 +281,7 @@ namespace CandyShop.Areas.Identity.Data
                       CandyDescription = "A sour candy",
                       CandyPrice = 15,
                       CandyQuantity = 40,
-                      CandyImage = "candy21"
+                      CandyImage = "Klubba5.jpg"
                   },
                    new Candy
                    {
@@ -291,7 +291,7 @@ namespace CandyShop.Areas.Identity.Data
                        CandyDescription = "Chewy sweet candy",
                        CandyPrice = 10,
                        CandyQuantity = 70,
-                       CandyImage = "candy22"
+                       CandyImage = "Klubba6.jpg"
                    },
                     new Candy
                     {
@@ -301,7 +301,7 @@ namespace CandyShop.Areas.Identity.Data
                         CandyDescription = "Chewy sweet candy",
                         CandyPrice = 5,
                         CandyQuantity = 60,
-                        CandyImage = "candy23"
+                        CandyImage = "Klubba7.jpg"
                     },
                      new Candy
                      {
@@ -311,7 +311,7 @@ namespace CandyShop.Areas.Identity.Data
                          CandyDescription = "Chewy with peach flavor candy",
                          CandyPrice = 10,
                          CandyQuantity = 50,
-                         CandyImage = "candy24"
+                         CandyImage = "Klubba8.jpg"
                      }
 
                 );
@@ -322,36 +322,36 @@ namespace CandyShop.Areas.Identity.Data
                  new Category
                  {
                      CategoryId = 1,
-                     CategoryName = "Caramels",
+                     CategoryName = "Chocolate",
                      CategoryImage = "category1"
                  },
 
                 new Category
                 {
                     CategoryId = 2,
-                    CategoryName = "Chocolate",
+                    CategoryName = "Gummies",
                     CategoryImage = "category2"
                 },
 
                 new Category
                 {
                     CategoryId = 3,
-                    CategoryName = "Gummies",
+                    CategoryName = "Hard Candy",
                     CategoryImage = "category3"
                 },
 
                  new Category
                  {
                      CategoryId = 4,
-                     CategoryName = "Combination",
+                     CategoryName = "Lollipops",
                      CategoryImage = "category4"
                  }
 
                 );
 
             modelBuilder.Entity<Cart>().HasData(
-                new Cart { CartId = 1, CustomerCartId = customerId},
-                new Cart { CartId = 2, CustomerCartId = customerId2}
+                new Cart { CartId = 1, CustomerCartId = customerId },
+                new Cart { CartId = 2, CustomerCartId = customerId2 }
                 );
 
 

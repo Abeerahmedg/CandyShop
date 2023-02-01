@@ -52,18 +52,8 @@ namespace CandyShop.Controllers
 
             try
             {
-
-                //var candyToUpdate = _context.Candies.Find(id);
-
-                //if (candyToUpdate == null)
-                //    return NotFound($"Candy with candyId = {id} not found");
-
-                //updatedCandy.CandyId = candyToUpdate.CandyId;
-
-
-
                 _context.Candies.Update(updatedCandy);
-                //_context.SaveChanges();
+                _context.SaveChanges();
 
                 return StatusCode(200);
             }
@@ -94,7 +84,7 @@ namespace CandyShop.Controllers
         [HttpPut("updateuser")]
         public async Task<IActionResult> UpdateUser(UpdateUserVM vm)
         {
-           var customer = await _context.Customers.FindAsync(vm.UserId);
+            var customer = await _context.Customers.FindAsync(vm.UserId);
 
             customer.CustomerFName = vm.CustomerFName;
             customer.CustomerLName = vm.CustomerLName;
@@ -102,7 +92,7 @@ namespace CandyShop.Controllers
 
 
             await _userManager.UpdateAsync(customer);
-           
+
             return StatusCode(200);
         }
 
@@ -119,6 +109,47 @@ namespace CandyShop.Controllers
                 return StatusCode(200);
             }
             return StatusCode(404);
+        }
+
+        [HttpGet("itemorders")]
+        public List<ItemOrder> GetItemOrders()
+        {
+            return _context.ItemOrders.ToList();
+        }
+
+        [HttpDelete("deleteorders/{id}")]
+        public IActionResult DeleteOrder(int id)
+        {
+            var ItemOrder = _context.ItemOrders.Find(id);
+
+            if (ItemOrder != null)
+            {
+                _context.ItemOrders.Remove(ItemOrder);
+                _context.SaveChanges();
+
+                return StatusCode(200);
+            }
+            return StatusCode(404);
+        }
+
+        [HttpPut("updateorders/{id}")]
+        public IActionResult UpdateOrder(int id, [FromBody] ItemOrder updatedOrder)
+        {
+            if (updatedOrder == null)
+                return BadRequest("Candy ID mismatch");
+
+            try
+            {
+                _context.ItemOrders.Update(updatedOrder);
+                _context.SaveChanges();
+
+                return StatusCode(200);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Error updating data: " + ex);
+            }
         }
 
     }

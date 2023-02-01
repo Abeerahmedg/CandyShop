@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using System.Diagnostics.Metrics;
+using Newtonsoft.Json.Linq;
 
 namespace CandyShop.Controllers
 {
@@ -207,34 +208,47 @@ namespace CandyShop.Controllers
             return user.Id;
         }
 
-        [HttpGet("purchase/{id}")]
-        public Order Purchase(string id)
+        //[HttpGet("purchase/{id}")]
+        //public Order Purchase(string id)
+        //{
+        //    int totalAmount = 0;
+
+        //    Cart cart = _context.Carts.Include(i => i.ItemOrders).FirstOrDefault(x => x.CustomerCartId == id);
+
+        //    foreach (var item in cart.ItemOrders)
+        //    {
+        //        Candy candy = _context.Candies.Find(item.CandyId);
+        //        candy.CandyQuantity -= item.Quantity;
+        //        _context.Candies.Update(candy);
+        //        totalAmount += item.CandyPrice * item.Quantity;
+        //    }
+
+        //    Order order = new Order { Items = cart.ItemOrders, OrderDate = DateTime.Today, TotalAmount = totalAmount, UserId = id};
+        //    _context.Orders.Add(order);
+
+
+        //    _context.SaveChanges();
+
+        //    return order;
+        //}
+
+
+        [HttpPost("purchase")]
+        public Order Purchase(PurchaseOrderVM purchaseOrderVM)
         {
-            int totalAmount = 0;
-            //Behöver fixa mer senare, lägger till kommentar som påminnelse
+            //string jsonItem = jsonObject.ToString();
+            //PurchaseOrderVM vm = JsonConvert.DeserializeObject<PurchaseOrderVM>(jsonItem);
 
-            Cart cart = _context.Carts.Include(i => i.ItemOrders).FirstOrDefault(x => x.CustomerCartId == id);
+            //List<ItemOrder> list = jsonObject.ToList<ItemOrder>();
 
-            foreach (var item in cart.ItemOrders)
-            {
-                Candy candy = _context.Candies.Find(item.CandyId);
-                candy.CandyQuantity -= item.Quantity;
-                _context.Candies.Update(candy);
-                totalAmount += item.CandyPrice * item.Quantity;
-            }
-
-            Order order = new Order { Items = cart.ItemOrders, OrderDate = DateTime.Today, TotalAmount = totalAmount, UserId = id };
+            Order order = new Order { Items = purchaseOrderVM.ItemOrders, OrderDate = DateTime.Today, TotalAmount = 500, UserId = "testar" };
             _context.Orders.Add(order);
-
-            //var customer = _context.Customers.Find(id);
-            //customer.Cart.ItemOrders.Clear();
-
-            //_context.Customers.Update(customer);
-
             _context.SaveChanges();
 
             return order;
         }
+
+
 
         [HttpGet("onlyCategories")]
         public List<Category> GetonlyCategories()

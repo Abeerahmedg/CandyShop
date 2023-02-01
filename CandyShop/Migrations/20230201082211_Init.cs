@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CandyShop.Migrations
 {
-    public partial class Details : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -241,7 +241,7 @@ namespace CandyShop.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CandyId = table.Column<int>(type: "int", nullable: false),
                     CandyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<int>(type: "int", nullable: false),
+                    CandyPrice = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     CartId = table.Column<int>(type: "int", nullable: false),
                     OrderId = table.Column<int>(type: "int", nullable: true)
@@ -267,8 +267,8 @@ namespace CandyShop.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "3c56233d-2178-4d45-a26b-2d840d5a2581", "8a616052-4d0d-4e5b-b506-4088ce3ccf35", "Admin", "ADMIN" },
-                    { "82b58570-a134-486d-9d31-391ca6f639e8", "68bea74f-5f61-43a8-8904-e5045559fc2b", "User", "USER" }
+                    { "c71ca0b5-fafd-48ff-94d4-d57e78f0548b", "e7653901-dc09-4e76-96d0-d2126e2cf529", "User", "USER" },
+                    { "e7c3605b-0233-4cd7-9a04-4238353e39b1", "8f604b0c-6002-4f3e-b83c-9f4907dc205a", "Admin", "ADMIN" }
                 });
 
             migrationBuilder.InsertData(
@@ -276,8 +276,8 @@ namespace CandyShop.Migrations
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "CustomerFName", "CustomerLName", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
                 values: new object[,]
                 {
-                    { "4d5fb0de-5f46-4d6a-a244-cf59790fd376", 0, "f3516bd2-4755-48a0-9e7c-2fefa2b0eb01", "User", "Usersson", "user@gmail.com", false, false, null, "USER@GMAIL:COM", "user@gmail.com", "AQAAAAEAACcQAAAAEHUt3+lddCzZ4luwyeWNi0zP8Y2yO+//009FcJkn+/9182gA49qgA21UMnlaFvfyNw==", "0737555555", false, "d633038e-d02d-487f-8576-a273b3c01f3f", false, "user@gmail.com" },
-                    { "c6095346-c0f7-4d5e-94c6-234098988b09", 0, "34515740-e9af-4911-baaa-20e8265d138f", "Admin", "Adminsson", "admin@gmail.com", false, false, null, "ADMIN@GMAIL:COM", "admin@gmail.com", "AQAAAAEAACcQAAAAEKZhfddCCMQtv8caDtBxEfQw1r3vTJZCWNKTU8X0sJfcusfHvGyvwhcFnm74mpxJPA==", "0737555555", false, "0ac0d8ce-b7b3-4c8e-a4ac-0ad21fefe839", false, "admin@gmail.com" }
+                    { "6c690538-d619-4b4c-8201-a3a7030a3796", 0, "dc24ff5f-e69a-47ef-9e47-0994094c1569", "Admin", "Adminsson", "admin@gmail.com", false, false, null, "ADMIN@GMAIL:COM", "admin@gmail.com", "AQAAAAEAACcQAAAAEBtQTLr23BBt8U/Q6ZXFJZlSpS3qewnltDlJr0IQ98q8sGqmo7zVWulUWpHJzgS8mw==", "0737555555", false, "6cf9ddd7-36b3-4de1-a0c9-48e77abd5a07", false, "admin@gmail.com" },
+                    { "fe72e58e-9e6c-45ac-a909-bc30fb2e4640", 0, "872be3cb-1015-4672-8d9c-9f700fa74b7f", "User", "Usersson", "user@gmail.com", false, false, null, "USER@GMAIL:COM", "user@gmail.com", "AQAAAAEAACcQAAAAEG0G3Jm/nr06P2tvsYYPn+85vVbRHN9xrrkD7r5qEC+JUwCTuH3vUebRy4lW+nxWhg==", "0737555555", false, "a1525d85-fa15-4cd1-804a-860ab9e11689", false, "user@gmail.com" }
                 });
 
             migrationBuilder.InsertData(
@@ -285,10 +285,10 @@ namespace CandyShop.Migrations
                 columns: new[] { "CategoryId", "CategoryImage", "CategoryName" },
                 values: new object[,]
                 {
-                    { 1, "category1", "Caramels" },
-                    { 2, "category2", "Chocolate" },
-                    { 3, "category3", "Gummies" },
-                    { 4, "category4", "Combination" }
+                    { 1, "category1", "Chocolate" },
+                    { 2, "category2", "Gummies" },
+                    { 3, "category3", "Hard Candy" },
+                    { 4, "category4", "Lollipops" }
                 });
 
             migrationBuilder.InsertData(
@@ -296,8 +296,8 @@ namespace CandyShop.Migrations
                 columns: new[] { "RoleId", "UserId" },
                 values: new object[,]
                 {
-                    { "82b58570-a134-486d-9d31-391ca6f639e8", "4d5fb0de-5f46-4d6a-a244-cf59790fd376" },
-                    { "3c56233d-2178-4d45-a26b-2d840d5a2581", "c6095346-c0f7-4d5e-94c6-234098988b09" }
+                    { "e7c3605b-0233-4cd7-9a04-4238353e39b1", "6c690538-d619-4b4c-8201-a3a7030a3796" },
+                    { "c71ca0b5-fafd-48ff-94d4-d57e78f0548b", "fe72e58e-9e6c-45ac-a909-bc30fb2e4640" }
                 });
 
             migrationBuilder.InsertData(
@@ -305,30 +305,30 @@ namespace CandyShop.Migrations
                 columns: new[] { "CandyId", "CandyCategoryId", "CandyDescription", "CandyImage", "CandyName", "CandyPrice", "CandyQuantity" },
                 values: new object[,]
                 {
-                    { 1, 1, "Caramels made by cooking sugar and water together", "candy1", "Coffee Rio", 5.0, 50 },
-                    { 2, 1, "A tasty Caramel and sugary Crunch", "candy2", "Caramel Crunch", 15.0, 50 },
-                    { 3, 1, "The Vanila taste with the sweet of caramel", "candy3", "Vanilla Caramel", 10.0, 50 },
-                    { 4, 1, "The Vanilla taste with the sweet of caramel", "candy4", "Caramel Square", 10.0, 50 },
-                    { 5, 1, "Combination of nuts and the sweet of caramel", "candy5", "Nut Caramel", 15.0, 40 },
-                    { 6, 2, "Tastey colorful chocolate", "candy6", "M&Ms", 15.0, 40 },
-                    { 7, 2, "A mini full of flavor chocolate", "candy7", "Kit Kat", 11.0, 45 },
-                    { 8, 2, "Combination of Almond and chocolate", "candy8", "Almond Joy", 16.0, 40 },
-                    { 9, 2, "Combination of Cherries flavor and chocolate", "candy9", "Chocolate Cherry", 15.0, 50 },
-                    { 10, 2, "Biscute Coverd of chocolate", "candy10", "Krackle", 11.0, 50 },
-                    { 11, 2, "Combination of nuts and the sweet of chocolate", "candy11", "Snickers", 15.0, 40 },
-                    { 12, 3, "Gummies are gelatin based chewy candies", "candy12", "Gummi Cherry", 18.0, 55 },
-                    { 13, 3, "Chewy candies With different flavors", "candy13", "Gummi worms", 5.0, 60 },
-                    { 14, 3, "Chewy candies With cola flavor", "candy14", "Gummi cola bottles", 5.0, 60 },
-                    { 15, 3, "Chewy candies With stawberry flavor", "candy15", "Gummi strawberry", 5.0, 60 },
-                    { 16, 3, "Chewy candies With banana flavor", "candy16", "Gummi banana", 5.0, 60 },
-                    { 17, 4, "Licorice is a semi-soft candy", "candy17", "Red Vines", 20.0, 50 },
-                    { 18, 4, "Licorice is a semi-soft candy with cherry flavor", "candy18", "Twizzler", 20.0, 50 },
-                    { 19, 4, "A hard sweet candy", "candy19", "Chupa Chups", 15.0, 40 },
-                    { 20, 4, "A sour candy", "candy20", "Sour Punch", 13.0, 30 },
-                    { 21, 4, "A sour candy", "candy21", "Warheads", 15.0, 40 },
-                    { 22, 4, "Chewy sweet candy", "candy22", "Abba-Zaba", 10.0, 70 },
-                    { 23, 4, "Chewy sweet candy", "candy23", "Sky Bar", 5.0, 60 },
-                    { 24, 4, "Chewy with peach flavor candy", "candy24", "Peach Blossoms", 10.0, 50 }
+                    { 1, 1, "Caramels are made by cooking sugar and water together", "Choklad1.jpg", "Coffee Rio", 5.0, 50 },
+                    { 2, 1, "A tasty Caramel and sugary Crunch", "Choklad2.png", "Caramel Crunch", 15.0, 50 },
+                    { 3, 1, "The Vanila taste with the sweet of caramel", "Choklad3.jpg", "Vanilla Caramel", 10.0, 50 },
+                    { 4, 1, "The Vanilla taste with the sweet of caramel", "Choklad4.jpg", "Caramel Squares", 10.0, 50 },
+                    { 5, 1, "Combination of nuts and the sweet of caramel", "Choklad5.jpg", "Nut Caramel", 15.0, 40 },
+                    { 6, 2, "Tastey colorful chocolate", "Gele1.jpg", "M&Ms", 15.0, 40 },
+                    { 7, 2, "A mini full of flavor chocolate", "Gele2.jpg", "Kit Kat", 11.0, 45 },
+                    { 8, 2, "Combination of Almond and the sweet of chocolate", "Gele3.jpg", "Almond Joy", 16.0, 40 },
+                    { 9, 2, "Combination of Cherries flavor and the sweet of chocolate", "Gele4.jpg", "Chocolate Cherries", 15.0, 50 },
+                    { 10, 2, "Biscute Coverd of chocolate", "Gele5.jpg", "Krackle", 11.0, 50 },
+                    { 11, 2, "Combination of nuts and the sweet of chocolate", "Gele2.jpg", "Snickers", 15.0, 40 },
+                    { 12, 3, "Gummies are gelatin based chewy candies", "Karamell1.jpg", "Gummi Cheries", 18.0, 55 },
+                    { 13, 3, "Chewy candies With different flavors", "Karamell2.jpg", "Gummi worms", 5.0, 60 },
+                    { 14, 3, "Chewy candies With cola flavor", "Karamell3.jpg", "Gummi cola bottles", 5.0, 60 },
+                    { 15, 3, "Chewy candies With stawberry flavor", "Karamell4.jpg", "Gummi strawberry", 5.0, 60 },
+                    { 16, 3, "Chewy candies With banana flavor", "Karamell5.jpg", "Gummi banana", 5.0, 60 },
+                    { 17, 4, "Licorice is a semi-soft candy", "Klubba1.jpg", "Red Vines", 20.0, 50 },
+                    { 18, 4, "Licorice is a semi-soft candy with cherry flavor", "Klubba2.jpg", "Twizzler", 20.0, 50 },
+                    { 19, 4, "A hard sweet candy", "Klubba3.jpg", "Chupa Chups", 15.0, 40 },
+                    { 20, 4, "A sour candy", "Klubba4.jpg", "Sour Punch", 13.0, 30 },
+                    { 21, 4, "A sour candy", "Klubba5.jpg", "Warheads", 15.0, 40 },
+                    { 22, 4, "Chewy sweet candy", "Klubba6.jpg", "Abba-Zaba", 10.0, 70 },
+                    { 23, 4, "Chewy sweet candy", "Klubba7.jpg", "Sky Bar", 5.0, 60 },
+                    { 24, 4, "Chewy with peach flavor candy", "Klubba8.jpg", "Peach Blossoms", 10.0, 50 }
                 });
 
             migrationBuilder.InsertData(
@@ -336,8 +336,8 @@ namespace CandyShop.Migrations
                 columns: new[] { "CartId", "CustomerCartId" },
                 values: new object[,]
                 {
-                    { 1, "c6095346-c0f7-4d5e-94c6-234098988b09" },
-                    { 2, "4d5fb0de-5f46-4d6a-a244-cf59790fd376" }
+                    { 1, "6c690538-d619-4b4c-8201-a3a7030a3796" },
+                    { 2, "fe72e58e-9e6c-45ac-a909-bc30fb2e4640" }
                 });
 
             migrationBuilder.CreateIndex(
